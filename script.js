@@ -26,7 +26,6 @@ function fetchUser() {
     document.querySelector("tbody").innerHTML = output
     });
 }
-document.querySelector('#num').innerText=pageNumber;
 
 function next() {
   pageNumber++;
