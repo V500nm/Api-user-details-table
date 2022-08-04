@@ -3,7 +3,7 @@ const src = "https://randomuser.me/api";
 let pageSize = 10;
 let pageNumber = 1;
 
-function fetchUser(cb) {
+function fetchUser() {
   fetch(`${src}?results=${pageSize}&page=${pageNumber}`)
     .then((data) => data.json())
     .then((json) => {
@@ -26,13 +26,11 @@ function fetchUser(cb) {
     document.querySelector("tbody").innerHTML = output
     });
 }
-var Pdata = 1;
-document.querySelector('#num').innerText=Pdata;
+document.querySelector('#num').innerText=pageNumber;
 
 function next() {
   pageNumber++;
-   Pdata = Pdata + 1;
-  document.querySelector("#num").innerText = Pdata;
+  document.querySelector("#num").innerText = pageNumber;
   fetchUser((data) => {
     console.log(data);
   });
@@ -42,8 +40,7 @@ function next() {
 function previous() {
   if (pageNumber === 1) true;
   pageNumber--; 
-  Pdata = Pdata - 1;
-    document.querySelector("#num").innerText = Pdata;
+    document.querySelector("#num").innerText =pageNumber;
   fetchUser((data) => {
     console.log(data);
   });
